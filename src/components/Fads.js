@@ -4,14 +4,22 @@ import { Link } from 'react-router-dom'
 const Fads = () => {
     const [fadData, setFadData ]= useState({ fadList: []});
   
-    async function fetchFads() {
-      const fadRes = await fetch("http://127.0.0.1:8000/fad");
-      fadRes.json().then(fadRes => setFadData(fadRes))
+    function fetchFads() {
+        fetch("http://localhost:8000/fad/", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Connection": "keep-alive",
+                "Accept": "*/*",
+            },
+        }).then
+        (res => res.json())
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
     }
-  
     useEffect(() => {
         fetchFads();
-    });
+    })
 
     return(
         <div>
