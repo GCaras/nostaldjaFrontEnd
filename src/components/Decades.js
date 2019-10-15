@@ -10,13 +10,11 @@ const Decades = () => {
             headers: {
                 "Content-Type": "application/json",
                 "Connection": "keep-alive",
-                "Cache-Control": "no-cache",
                 "Accept": "*/*",
-                "RequestMode": "no-cors"
             },
         }).then
         (res => res.json())
-        .then(res => setDecadeData(res))
+        .then(res => console.log(res))
         .catch(err => console.log(err))
     }
     useEffect(() => {
