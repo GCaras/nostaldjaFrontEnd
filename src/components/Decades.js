@@ -4,17 +4,24 @@ import { Link } from 'react-router-dom'
 const Decades = () => {
     const [decadeData, setDecadeData ]= useState({ decadeList: []});
   
-    async function fetchDecades() {
-      const decadeRes = await fetch("http://127.0.0.1:8000/decades");
-      decadeRes.json().then(decadeRes => setDecadeData(decadeRes))
+    function fetchDecades() {
+        fetch("http://localhost:8000/decade/", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Connection": "keep-alive",
+                "Cache-Control": "no-cache",
+                "Accept": "*/*",
+                "RequestMode": "no-cors"
+            },
+        }).then
+        (res => res.json())
+        .then(res => setDecadeData(res))
+        .catch(err => console.log(err))
     }
-  
     useEffect(() => {
         fetchDecades();
-        // setDecadeData(props);
-    }
-    // , [props]
-    );
+    })
 
     return(
         <div>

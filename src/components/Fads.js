@@ -5,16 +5,13 @@ const Fads = () => {
     const [fadData, setFadData ]= useState({ fadList: []});
   
     async function fetchFads() {
-      const fadRes = await fetch("http://127.0.0.1:8000/fads");
+      const fadRes = await fetch("http://127.0.0.1:8000/fad");
       fadRes.json().then(fadRes => setFadData(fadRes))
     }
   
     useEffect(() => {
         fetchFads();
-        // setFadData(props);
-    }
-    // ,[props]
-    );
+    });
 
     return(
         <div>
