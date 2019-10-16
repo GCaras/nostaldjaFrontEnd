@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 
-const Decades = () => {
+const Decades = (props) => {
     const [decadeData, setDecadeData ] = useState({
-        decadeData: []
+        decadeData: null
     });
   
     function fetchDecades() {
@@ -11,28 +11,28 @@ const Decades = () => {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-                // "Connection": "keep-aliv",
                 "Accept": "*/*",
             },
-        }).then(res => res.json().then(JSON.stringify(res))
-        )
-        .then(res => setDecadeData(res))
-        .then(console.log(decadeData))
+        }).then(res => res.json().then(JSON.stringify(res)))
+        .then(response => setDecadeData(response))
         .catch(err => console.log(err))
     }
     useEffect(() => {
         fetchDecades();
+        JSON.stringify(decadeData)
     }, [])
+
+    console.log(decadeData)
 
     return(
         <div>
             <h2>Decades</h2>
-            <span>{JSON.stringify(decadeData)}</span>
+            <div>{JSON.stringify(decadeData[0])}</div>
             {/* <section>
-                {Decades.decadeData.map((decade, i) => (
+                {decadeData.forEach((decade, i) => (
                     <div key={i}>
                         <Link to='/decades/:id/' {...decadeData}>
-                            <h3>{decade[i].start_year}</h3>
+                            <h3 >{decade[i].start_year}</h3>
                         </Link>
                     </div>
                 ))}
