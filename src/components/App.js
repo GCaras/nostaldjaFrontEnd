@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Decades from './Decades'
-import DecadeDetail from './DecadesDetail'
+import DecadesDetail from './DecadesDetail'
 import Fads from './Fads'
 import FadDetail from './FadDetail'
 import { Route, Link } from 'react-router-dom'
@@ -52,30 +52,28 @@ export default function App(props) {
           </Link>
         </nav>
       </header>
-      <Route
-        path='/decades/'
-      >
-        <Decades decadeData={decadeData} />
-      </Route>
-      <Route
-        path='/decades/:startyear/'
-        exact
-      >
-        <DecadeDetail decadeData={decadeData} />
-      </Route>
-      <Route
-        path='/fads/'
-        exact
-      >
-        <Fads fadData={fadData}/>
-      </Route>
-      <Route
-        path='/fads/:name/'
-        exact
-      >
-        <FadDetail fadData={fadData} />
-      </Route>
-      
+      <main>
+        <Route
+          path='/decades/'
+          exact
+          render={() => <Decades decadeData={decadeData} />}
+        />
+        <Route
+          path='/decades/:startyear/'
+          exact
+          render={() => <DecadesDetail decadeData={decadeData}/>}
+        />
+        <Route
+          path='/fads/'
+          exact
+          render={() => <Fads fadData={fadData} />}
+        />
+        <Route
+          path='/fads/:name/'
+          exact
+          render={() => <FadDetail fadData={fadData} />}
+        />
+      </main>
     </div>
   );
 }
