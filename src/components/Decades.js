@@ -14,15 +14,15 @@ const Decades = () => {
                 // "Connection": "keep-aliv",
                 "Accept": "*/*",
             },
-        // }).then(res => res.json())
-        // .then(res => setDecadeData(res))
-        // .then(JSON.stringify(decadeData))
-        // .then(console.log(decadeData))
+        }).then(res => res.json().then(JSON.stringify(res))
+        )
+        .then(res => setDecadeData(res))
+        .then(console.log(decadeData))
         .catch(err => console.log(err))
     }
     useEffect(() => {
         fetchDecades();
-    })
+    }, [])
 
     return(
         <div>
