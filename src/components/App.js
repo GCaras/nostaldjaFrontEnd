@@ -8,7 +8,9 @@ export default function App() {
   return (
     <div>
       <header>
+        <Link to='/'>
         <h1>Nostaldja</h1>
+        </Link>
         <nav>
           <Link to='/decades/'>
             <div>
