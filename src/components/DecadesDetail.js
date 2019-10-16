@@ -1,6 +1,6 @@
 import React from 'react'
 
-const DecadesDetail = () => {
+const DecadesDetail = (props) => {
     return(
         <div>
             <h2>Decade: 
