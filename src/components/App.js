@@ -2,6 +2,7 @@ import React from 'react';
 import Decades from './Decades'
 import DecadeDetail from './DecadesDetail'
 import Fads from './Fads'
+import FadDetail from './FadDetail'
 import { Route, Link } from 'react-router-dom'
 
 export default function App() {
@@ -41,6 +42,13 @@ export default function App() {
       >
         <Fads />
       </Route>
+      <Route
+        path='/fads/:name/'
+        exact
+      >
+        <FadDetail />
+      </Route>
+      
     </div>
   );
 }
