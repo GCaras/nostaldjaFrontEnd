@@ -22,12 +22,9 @@ const FadUpdate = (props) => {
         console.log(fadData.image_url)
     };
 
-    const updateFad= () => {
+    const updateFad = () => {
         fetch(fadUrl + fad.id, {
             method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            },
             body: JSON.stringify(fadData)
         }).then(res => console.log(res))
         .catch(err => console.log(err));
