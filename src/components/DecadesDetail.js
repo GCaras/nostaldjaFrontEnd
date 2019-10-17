@@ -3,16 +3,17 @@ import { Link } from 'react-router-dom'
 
 
 const DecadesDetail = (props) => {
-    console.log(props)
+    const decadeStartYear = props.match.params.start_year;
+    const decade = props.decadeData.find(decade => decade.start_year === decadeStartYear)
     return(
         <div>
             <h2>Decade: 
-            {props.decadeData.start_year}
+            {decade.start_year}
             </h2>
             <h2>Fads</h2>
             <section>
                 {/* loop through each fad index */}
-                {props.decadeData[3].fads.map((fad, i) => (
+                {decade.fads.map((fad, i) => (
                 <div key={i}>
                     <Link to={'/fads/'+fad.name+'/'}>
                         <h3 >{fad.name}</h3>

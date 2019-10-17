@@ -5,7 +5,7 @@ import Fads from './Fads'
 import FadDetail from './FadDetail'
 import { Route, Link } from 'react-router-dom'
 
-export default function App(props) {
+export default function App() {
   const [fadData, setFadData ] = useState([]
     );
   const [decadeData, setDecadeData ] = useState([]
@@ -56,22 +56,22 @@ export default function App(props) {
         <Route
           path='/decades/'
           exact
-          render={() => <Decades decadeData={decadeData} />}
+          render={props => <Decades decadeData={decadeData} {...props}/>}
         />
         <Route
-          path='/decades/:startyear/'
+          path='/decades/:start_year/'
           exact
-          render={() => <DecadesDetail decadeData={decadeData}/>}
+          render={props => <DecadesDetail decadeData={decadeData} {...props}/>}
         />
         <Route
           path='/fads/'
           exact
-          render={() => <Fads fadData={fadData} />}
+          render={props => <Fads fadData={fadData} {...props} />}
         />
         <Route
           path='/fads/:name/'
           exact
-          render={() => <FadDetail fadData={fadData} />}
+          render={props => <FadDetail fadData={fadData} decadeData={decadeData} {...props} />}
         />
       </main>
     </div>
