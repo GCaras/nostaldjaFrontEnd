@@ -12,16 +12,25 @@ const CreateDecade = (props) => {
 
     const decadeUrl = "http://localhost:8000/decade/"
 
-    const CreateDecade = () => {
+    const CreateDecade = (evt) => {
+        evt.preventDefault()
         fetch(decadeUrl, {
             method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Connection": "keep-alive",
+                "Cache-Control": "no-cache",
+                "Accept": "*/*",
+            },
+            body: JSON.stringify(decadeData)
         }).then(res => console.log(res))
         .catch(err => console.log(err));
     }
 
-    const handleValueChange = (value)  => {
+    const handleValueChange = (evt)  => {
+        evt.preventDefault()
         setdecadeData({
-            start_year: value
+            start_year: evt.target.value
         })
         console.log(decadeData.start_year)
     };
@@ -33,7 +42,7 @@ const CreateDecade = (props) => {
                 <input 
                     type="text"
                     placeholder="Start Year"  
-                    onChange={evt => handleValueChange(evt.target.value)}
+                    onChange={evt => handleValueChange(evt)}
                 />
                 <button
                 onClick = {CreateDecade}
