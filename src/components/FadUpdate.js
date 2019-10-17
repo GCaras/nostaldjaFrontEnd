@@ -7,8 +7,9 @@ const FadUpdate = (props) => {
         name: "",
         description: "",
         image_url: "",
-        decade: null
+        decade: ""
     });
+
     const fadName = props.match.params.name;
     const fad = props.fadData.find(fad => fad.name === fadName)
 
@@ -18,18 +19,18 @@ const FadUpdate = (props) => {
         setFadData({
             [field]: value
         })
-        console.log(fadData.name)
+        console.log(fadData.image_url)
     };
 
-    const updateCard= () => {
-        fetch(fadUrl + this.props.match.params.name, {
+    const updateFad= () => {
+        fetch(fadUrl + fad.id, {
             method: "PUT",
-            body: JSON.stringify(this.state)
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(fadData)
         }).then(res => console.log(res))
         .catch(err => console.log(err));
-        // this.props.location.state.fetchPokeCard()
-        //the line above is an attempt to make our pokecard re-fetch 
-        //it's pokecard
     };
 
         return (
@@ -61,7 +62,7 @@ const FadUpdate = (props) => {
                             placeholder="Decade Start Year"  
                             onChange={evt => handleValueChange("decade", evt.target.value)}
                         />
-                        <button>Submit</button>
+                        <div onClick={updateFad}>Submit</div>
                     </form>
                 </article>    
             </div>
