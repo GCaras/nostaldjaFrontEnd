@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import Decades from './Decades'
 import DecadesDetail from './DecadesDetail'
+import CreateDecade from './CreateDecade'
+
 import Fads from './Fads'
 import FadDetail from './FadDetail'
 import FadUpdate from './FadUpdate'
@@ -59,11 +61,11 @@ export default function App() {
           exact
           render={props => <Decades decadeData={decadeData} {...props}/>}
         />
-        {/* <Route
+        <Route
           path='/create_decade/'
           exact
           render={props => <CreateDecade {...props}/>}
-        /> */}
+        />
         <Route
           path='/decades/:start_year/'
           exact
