@@ -7,7 +7,7 @@ const DecadesDetail = (props) => {
     const decade = props.decadeData.find(decade => decade.start_year === decadeStartYear)
     return(
         <div>
-            <h2>Decade: 
+            <h2>{"Decade: "}
             {decade.start_year}
             </h2>
             <h2>Fads</h2>
