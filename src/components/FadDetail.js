@@ -11,7 +11,6 @@ const FadDetail = (props) => {
             <section>
                 <img src = { fad.image_url } />
                 <p>{ fad.description }</p>
-                <p>{ fad.decade}</p>
             </section>
         </div>
     )
