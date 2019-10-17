@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const FadDetail = (props) => {
     const fadName = props.match.params.name;
@@ -19,6 +20,9 @@ const FadDetail = (props) => {
         <div>
             <h2>{ fad.name }</h2>
             <div onClick={deleteFad}>{"Delete Fad :("}</div>
+            <Link to={'edit/'}>
+                <div>{"Edit Fad"}</div>
+            </Link>
             <section>
                 <img src = { fad.image_url } />
                 <p>{ fad.description }</p>

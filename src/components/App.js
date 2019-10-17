@@ -3,6 +3,7 @@ import Decades from './Decades'
 import DecadesDetail from './DecadesDetail'
 import Fads from './Fads'
 import FadDetail from './FadDetail'
+import FadUpdate from './FadUpdate'
 import { Route, Link } from 'react-router-dom'
 
 export default function App() {
@@ -78,7 +79,11 @@ export default function App() {
           exact
           render={props => <FadDetail fadData={fadData} decadeData={decadeData} {...props} />}
         />
-        
+        <Route
+          path='/fads/:name/edit'
+          exact
+          render={props => <FadUpdate fadData={fadData} {...props} />}
+        />
       </main>
     </div>
   );
