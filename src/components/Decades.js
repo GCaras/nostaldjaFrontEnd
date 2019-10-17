@@ -6,7 +6,7 @@ const Decades = (props) => {
     return(
         <div>
             <h2>Decades</h2>
-            <Link>
+            <Link to="/create_decade/">
                 <h4>
                     Create Decade
                 </h4>
