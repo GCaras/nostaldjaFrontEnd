@@ -6,6 +6,11 @@ const Decades = (props) => {
     return(
         <div>
             <h2>Decades</h2>
+            <Link>
+                <h4>
+                    Create Decade
+                </h4>
+            </Link>
             <section>
                 {/* loop through each decade index */}
                 {props.decadeData.map((decade, i) => (

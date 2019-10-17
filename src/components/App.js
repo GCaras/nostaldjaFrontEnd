@@ -58,6 +58,11 @@ export default function App() {
           exact
           render={props => <Decades decadeData={decadeData} {...props}/>}
         />
+        {/* <Route
+          path='/create_decade/'
+          exact
+          render={props => <CreateDecade {...props}/>}
+        /> */}
         <Route
           path='/decades/:start_year/'
           exact
@@ -73,6 +78,7 @@ export default function App() {
           exact
           render={props => <FadDetail fadData={fadData} decadeData={decadeData} {...props} />}
         />
+        
       </main>
     </div>
   );
